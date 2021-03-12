@@ -1,0 +1,3 @@
+[submodule "BlogImageProcessor"]
+	path = BlogImageProcessor
+	url = https://github.com/iamjohnnyli/blog-image-processing-automation
