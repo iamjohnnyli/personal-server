@@ -27,6 +27,7 @@ async def BlogImageProcessor(id: str, width: int=1600, height: int=800, x_text: 
     
     
     if id:
-        return processor.img_process(id,width,height,x_text,y_text)
+        url,mk = processor.img_process(id,width,height,x_text,y_text)
+        return {'url':url,'markdown':mk}
     else:
         return {"message": 'Missing id paramator in request.'}
