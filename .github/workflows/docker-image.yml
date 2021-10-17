@@ -15,11 +15,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Docker Hub Login
-      env:
-        DOCKER_USER: ${{secrets.DOCKER_USER}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      with:
+        username: ${{secrets.DOCKER_USER}}
+        password: ${{secrets.DOCKER_PASSWORD}}
       run: docker login -u $DOCKER_USER -$DOCKER_PASSWORD
     - name: Build the Rpi.Docker image
-      run: docker build . --file Rpi.Dockerfile --tag $DOCKER_USER/myfastapiserver:$(date +%s)
+      run: docker build . --file Rpi.Dockerfile --tag ${{secrets.DOCKER_USER}}/myfastapiserver:$(date +%s)
     - name: Docker Push
-      run: docker push $DOCKER_USER/myfastapiserver
+      run: docker push ${{secrets.DOCKER_USER}}/myfastapiserver
