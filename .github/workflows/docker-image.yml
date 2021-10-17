@@ -18,7 +18,6 @@ jobs:
       with:
         username: ${{secrets.DOCKER_USER}}
         password: ${{secrets.DOCKER_PASSWORD}}
-      run: docker login -u $DOCKER_USER -$DOCKER_PASSWORD
     - name: Build the Rpi.Docker image
       run: docker build . --file Rpi.Dockerfile --tag ${{secrets.DOCKER_USER}}/myfastapiserver:$(date +%s)
     - name: Docker Push
