@@ -30,5 +30,3 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USER }}/myfastapiserver:$(date +%s)
-          secrets: |
-            GIT_AUTH_TOKEN=${{secrets.DOCKERHUB_PASSWORD }}
